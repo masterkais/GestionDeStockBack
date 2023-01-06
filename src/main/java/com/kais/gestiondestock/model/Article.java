@@ -1,10 +1,13 @@
-package com.kais.gestiondestock.modal;
+package com.kais.gestiondestock.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-@Builder
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,20 +15,30 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "article")
 public class Article extends AbstractEntity {
-    @Column(name = "codeArticle")
+    @Column(name = "codearticle")
     private String codeArticle;
+
     @Column(name = "designation")
     private String designation;
+
     @Column(name = "prixunitaireht")
     private BigDecimal prixUnitaireHt;
-    @Column(name = "prixunitairettc")
-    private BigDecimal prixUnitaireTtc;
+
     @Column(name = "tauxtva")
     private BigDecimal tauxTva;
+
+    @Column(name = "prixunitairettc")
+    private BigDecimal prixUnitaireTtc;
+
     @Column(name = "photo")
     private String photo;
+
     @ManyToOne
     @JoinColumn(name = "idcategory")
-    Category category;
+    private Category category;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
+
 
 }
