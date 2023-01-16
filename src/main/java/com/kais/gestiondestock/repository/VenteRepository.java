@@ -3,5 +3,8 @@ package com.kais.gestiondestock.repository;
 import com.kais.gestiondestock.model.Ventes;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface VenteRepository extends JpaRepository<Ventes,Integer> {
+import java.util.Optional;
+
+public interface VenteRepository extends JpaRepository<Ventes, Integer> {
+    Optional<Ventes> findByCode(String code);
 }
